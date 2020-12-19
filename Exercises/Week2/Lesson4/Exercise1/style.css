@@ -14,26 +14,20 @@ body{
 	width: 75%;
 	margin: auto;
 }
-ul{
+.header ul{
 	list-style-type: none;
 	padding: 15px;
 	border: 1px solid black;
 }
-li{
+.header a{
+	color: blue;
+	font-family: Courier New;
 	display: inline;
 	background-color: yellow;
 	border: 1px solid black;
 	padding: 5px;
 }
-a{
-	color: blue;
-}
-li a:hover{
-	background-color: purple;
-	color: pink;
-	text-decoration: none;
-}
-li:hover{
+.header a:hover{
 	background-color: purple;
 	color: pink;
 	text-decoration: none;
