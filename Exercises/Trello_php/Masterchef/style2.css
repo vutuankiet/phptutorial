@@ -1,0 +1,65 @@
+.header-background{
+	background-color: lightblue;
+	background-image: linear-gradient(lightblue,white);
+	background-repeat: repeat;
+	border-radius: 3px;
+	height: 550px;
+}
+.header{
+	width: 90%;
+    text-align: center;
+    margin: auto;
+    height: 550px;
+}
+.header h1{
+	position: relative;
+    bottom: 170px;
+  	background: -webkit-linear-gradient(#27efcd, #82b2fd);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+.header p{
+	position: relative;
+    bottom: 190px;
+}
+.image1 {
+	width:100%;
+	height: 300px;
+	border-radius: 10px;
+}
+.image2 {	
+	border-radius: 50%;
+    position: relative;
+    bottom: 150px;
+    border: 5px solid white;
+    width: 300px;
+    height: 300px;
+}
+.profile{
+	border: 2px dotted #b7d6e4f0;
+    background-color: #e2f8fbc9;
+    width: 25%;
+    margin: auto;
+    padding: 10px;
+}
+.profile h2{
+	background: -webkit-linear-gradient(#27efcd, #82b2fd);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+.profile a{
+	text-decoration: none;
+	color: darkred;
+}
+.profile a:hover{
+	background: -webkit-linear-gradient(#27efcd, #82b2fd);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+.profile h6{
+	font-size: 16px;
+	text-align: right;
+	background: -webkit-linear-gradient(red, yellow);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
