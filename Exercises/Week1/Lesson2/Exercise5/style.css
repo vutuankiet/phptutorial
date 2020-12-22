@@ -1,0 +1,19 @@
+h5{
+	margin: 0;
+    padding: 12px 0 0 0;
+    font-size: .94em;
+}
+th, td {
+	border: 1px solid black;
+	padding: 3px 3px 3px 3px;
+}
+table{
+	border: 1px solid black;
+}
+form{
+	padding: 0;
+	line-height: 1.7;
+}
+.submit{
+	padding: 12px 0 0 0;
+}
