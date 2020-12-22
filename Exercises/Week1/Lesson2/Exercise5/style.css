@@ -17,3 +17,7 @@ form{
 .submit{
 	padding: 12px 0 0 0;
 }
+.submit button{
+	text-decoration: underline;
+	color: blue;
+}

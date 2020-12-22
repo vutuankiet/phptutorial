@@ -4,6 +4,9 @@
 	<title>Exercise3</title>
 	<meta charset="utf-8">
 	<style>
+		.container{
+			width: 80%;-
+		}
 		hr{
 			border: double;
 			position: relative;
@@ -12,11 +15,11 @@
 	</style>
 </head>
 <body>
-	<div style="width: 80%;">
+	<div class="container">
 		<hr style="border: 1px solid gray; position: relative; top: 27px; width: 91.5%; margin-left: 16px;">
 		<h1>Application for permission to date my daughter</h1>
 		<p><strong>Note:</strong> Formm is to be completed at least 21 days prior to date</p>
-		<form>
+		<form action="/action.php" method="post">
 			<fieldset style="width: 90%">
 				<legend>Personal Details</legend>
 				<label for="name">Name:</label>
@@ -71,7 +74,7 @@
 				<label for="upfile">Upload Police Clearance Certificate, Bank Statement and Medical Certifiates here:</label>
 				<input type="file" name="upfile" value="Choose File">
 			</fieldset>
-			<input type="submit" name="submit" value="Send your application">
+			<button type="submit">Send your application</button>
 		</form>
 	</div>
 </body>

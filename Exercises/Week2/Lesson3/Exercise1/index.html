@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h1>Thanh toán</h1>
-	<form>
+	<form action="/action.php" method="post">
 		<label for="fullname">Tên đầy đủ</label>
 		<input type="text" name="name" placeholder="Nhập tên đầy đủ của người mua " size="50"><br><br>
 		<label for="password">Password</label>
@@ -15,20 +15,20 @@
 		<input type="email" name="email" placeholder="Nhập email"><br><br>
 		<label for="date">Ngày sinh</label>
 		<input type="date" name="date"><br><br>
-		<label for="#">Mặt hàng mua</label>
-		<input list="browsers" name="browser" id="browser">
-		<datalist id="browsers">
+		<label for="product">Mặt hàng mua</label>
+		<input list="product" name="product" id="product">
+		<datalist id="product">
 			<option value="Shoes">
 			<option value="Socks">
 			<option value="Shirt">
 			<option value="Sandals">
 			<option value="Trousers">
 		</datalist><br><br>
-		<label for="#">Số lượng mua</label>
+		<label for="amount">Số lượng mua</label>
 		<input type="number" name="number" min="1" max="5"><br><br>
-		<label for="#">Bán kính vận chuyển</label>
+		<label for="distance">Bán kính vận chuyển</label>
 		<input type="range" name="ranger"><br><br>
-		<input type="submit" name="Đăng ký">
+		<button type="submit">Đăng ký</button>
 	</form>
 </body>
 </html>

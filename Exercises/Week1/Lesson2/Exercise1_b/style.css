@@ -1,0 +1,19 @@
+.container{
+	width: 50%;
+	margin: auto;
+}
+table{
+	width: 100%;
+	border-collapse: collapse;
+}
+td,th{
+	text-align: left;
+	width: 80%;
+	font-weight: 550;
+	font-size: 18px;
+	border:2px solid black;
+}
+img{
+	width: 200px;
+	height: 120px;
+}
