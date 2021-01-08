@@ -1,0 +1,12 @@
+.container{
+	text-align: center;
+	padding: 20px;
+}
+.ico-container{
+	padding: 20px;
+}
+.txt-container{
+	color: yellow;
+	font-weight: 700;
+	font-size: 60px;
+}
