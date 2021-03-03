@@ -24,20 +24,27 @@
                         <h3>nhap so</h3>
                     </div>
                     <label for="Length">Nhập đơn vị chiều dài</label>
-                    <input class="form-control is-valid" type="text" id="Length" id="test" name="" pattern="[0-9]{0,10}" title="cần nhập số" required>
+                    <input class="form-control is-valid" type="text" name="length" id="length" pattern="[0-9]{0,10}" title="cần nhập số" required>
                     <label for="Width">Nhập đơn vị chiều rộng</label>
-                    <input class="form-control is-valid" type="text" id="Width" name="" pattern="[0-9]{0,10}" title="cần nhập số" required>
-                    <button class="btn btn-success mt-2" id="btn1" type="button">Tính chu vi và diện tích</button>
-                    <div id="test1"></div>
+                    <input class="form-control is-valid" type="text" name="width" id="width" pattern="[0-9]{0,10}" title="cần nhập số" required>
+                    <button class="btn btn-success mt-2" id="calculate" type="button">Tính chu vi và diện tích</button>
+                    <div class="mt-4" id="in"></div>
                 </form>
             </div>
         </div>
     </div>
 <script>
-$(document).ready(function(){
-  $("#btn1").click(function(){
-    $("#test1").text("chu vi la: " + $("#test").val());
-  });
+$(document).ready(function () {
+    $(".container").append("<p></p>");
+    $("#calculate").click(function () {
+        var lengthValue=$("#length").val();
+        var widthValue=$("#width").val();
+        if(lengthValue==''||widthValue==''){
+            $("#in").text("Vui lòng nhập đầy đủ dữ liệu").css("color","red");
+        }else{
+            $("#in").html("<p>Chu vi là: "+(parseFloat(lengthValue)+parseFloat(widthValue))*2+"m <br> Diện tích là: "+(parseFloat(lengthValue)*parseFloat(widthValue))+"m<sup>2</sup></p>").css("color","black");
+        }
+    });
 });
 </script>
 </body>

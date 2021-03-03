@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 4</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .container{
+        background-image: url("images/art.jpg");
+        background-size:100% 100%;
+        height: 100vh;
+    }
+</style>
+<body>
+    <div class="container" id="background">
+        <select name="" id="picture">
+            <option value="art">Art Picture</option>
+            <option value="food">Food Picture</option>
+            <option value="keyboard">Keyboard Picture</option>
+            <option value="nature">Nature Picture</option>
+            <option value="travel">Travel Picture</option>
+        </select>
+        <button onclick="setImageBasedOnSelect()">Change Picture</button>
+    </div>
+    <script>
+        function setImageBasedOnSelect(){
+            var picture=document.getElementById("picture");
+            var background=document.getElementById("background");
+            background.style.backgroundImage='url("images/'+ picture.value +'.jpg")';
+        }
+    </script>
+</body>
+</html>

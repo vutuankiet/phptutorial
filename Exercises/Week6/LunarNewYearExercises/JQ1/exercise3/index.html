@@ -18,14 +18,13 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6 m-auto">
-                <form class="was-validated">
                     <label for="Name">Name</label>
-                    <input class="form-control is-valid" type="text" id="Name" name="" pattern="[a-z-A-Z]{0,25}" title="cần nhập chữ cái tối đa 25 kí tự" required>
+                    <input class="form-control" type="text" id="name" name="name" pattern="[a-z-A-Z]{0,25}" title="cần nhập chữ cái tối đa 25 kí tự" required>
                     <label for="Email">Email</label>
-                    <input class="form-control is-valid" type="email" id=Email name="" pattern="[a-z-A-Z-0-9]{0,25}" title="cần nhập email tối đa 25 kí tự" required>
+                    <input class="form-control" type="email" id=email name="email" pattern="[a-z-A-Z-0-9]{0,25}" title="cần nhập email tối đa 25 kí tự" required>
                     <label for="Country">Country</label>
                     <div class="form-group">
-                        <select class="custom-select" required>
+                        <select class="custom-select" id="countries" required>
                             <option value="">Select-country</option>
                             <option value="1">VIET NAM</option>
                             <option value="2">JAPAN</option>
@@ -33,9 +32,42 @@
                         </select>
                     </div>
                     <button class="btn btn-outline-secondary mt-2" type="button">Send info</button>
-                </form>
+                    <p id="result"></p>
             </div>
         </div>
     </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+    $("button").click(function () { 
+        $("#result").html("");
+        var emailRegex=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        if($("#name").val().trim()==''){
+            $("#result").append("-Name í invalid- <br>");
+            $("#result").css("color", "red");
+            $("#name").css("border", "1px solid red");
+        }else{
+            $("#name").css("border", "1px solid black");
+        }
+        if(emailRegex.test($("#email").val())==false){
+            $("#result").append("-Email is invalid- <br>");
+            $("#result").css("color", "red");
+            $("#email").css("border", "1px solid red");
+        }else{
+            $("#email").css("border", "1px solid black");
+        }
+        if($("#countries").val()=="-1"){
+            $("#result").append("-Country is invalid-");
+            $("#result").css("color", "red");
+            $("#countries").css("border", "1px solid red");
+        }else{
+            $("#countries").css("border", "1px solid black");
+        }
+        if($("#name").val().trim()!='' && emailRegex.test($("#email").val())!=false && $("#countries").val()!="-1"){
+            $("#result").html('Name: '+$("#name").val()+'<br> Email: '+$("#email").val()+'<br> Country: '+$("#countries option:selected").text());
+            $("#result").css("color", "black");
+        }
+    });
+});
+</script>
 </body>
 </html>

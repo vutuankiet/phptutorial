@@ -18,21 +18,42 @@
 	<div class="container">
 		<form class="form-group row m-auto was-validated">
 			<label class="col-12 p-0" for="#">First Name: </label>
-			<input class="col-12 form-control" type="text" name="fname" placeholder="First Name..." pattern="[a-zA-Z]{1,25}" required><br>
+			<input class="col-12 form-control" type="text" id="firstName" name="fname" placeholder="First Name..." pattern="[a-zA-Z]{1,25}" required><br>
 			<label class="col-12 p-0" for="#">Last Name: </label>
-			<input class="col-12 form-control" type="text" name="lname" placeholder="Last Name..." pattern="[a-zA-Z]{1,25}" required>
+			<input class="col-12 form-control" type="text" id="lastName" name="lname" placeholder="Last Name..." pattern="[a-zA-Z]{1,25}" required>
 			
 			<div class="custom-control custom-radio">
-			    <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
-			    <label class="custom-control-label" for="customControlValidation2">Male</label>
+			    <input type="radio" class="custom-control-input" id="customMale" name="radio-stacked" required>
+			    <label class="custom-control-label" for="customMale">Male</label>
 			</div>
-			<div class="custom-control custom-radio">
-			    <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked" required>
-			    <label class="custom-control-label" for="customControlValidation3">Female</label>
+			<div class="custom-control custom-radio ml-4">
+			    <input type="radio" class="custom-control-input" id="customFemale" name="radio-stacked" required>
+			    <label class="custom-control-label" for="customFemale">Female</label>
 			</div>
+			<label class="col-12 p-0">Date: </label>
 			<input class="col-12 form-control" type="date" required>
-			<button class="btn btn-primary mt-2" type="submit" name="">Submit</button>
+			<button class="btn btn-primary mt-2" type="submit">Submit</button>
 		</form>
 	</div>
+	<script>
+        function checkInput(){
+            var firstName=document.getElementById("firstName");
+            var lastName=document.getElementById("lastName");
+            if (firstName.value=="" and firstName.value==" "){
+                firstName.style.border="1px solid red";
+                firstName.nextElementSibling.innerHTML = "Không được để trống";
+            }else{
+                firstName.style.border="1px solid black";
+                firstName.nextElementSibling.innerHTML = "";
+            }
+            if (lastName.value=="" and astName.value==" "){
+                lastName.style.border="1px solid red";
+                lastName.nextElementSibling.innerHTML = "Không được để trống";
+            }else{
+                lastName.style.border="1px solid black";
+                lastName.nextElementSibling.innerHTML = "";
+            }
+        }
+    </script>
 </body>
 </html>
