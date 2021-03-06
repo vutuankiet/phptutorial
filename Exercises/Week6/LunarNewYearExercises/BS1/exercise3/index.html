@@ -2,9 +2,7 @@
 <html>
 <head>
 	<title>Exercise 3</title>
-	<link rel="shortcut icon" href="image/logoCofee.png" type="image/x-icon">
   	<meta charset="utf-8">
-  	<link rel="stylesheet" type="text/css" href="style.css">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">       
     <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">    
@@ -22,7 +20,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-sm-3 p-4 bg-leftContent d-table">
+            <div class="col-12 col-sm-12 col-md-4 p-4 bg-leftContent h-100">
                 <h2>Some favorites</h2>
                 <nav>
                     <ul>
@@ -32,11 +30,11 @@
                     </ul>
                 </nav>
                 <form class="form-inline form-group m-0" action="/singup.php">
-                    <input class="form-control mr-sm-2 bg-light text-dark mb-3" type="search" placeholder="Search" aria-label="Search"><br>
-                    <button class="btn btn-primary text-white" type="submit">Search recipes</button>
+                    <input class="form-control mr-sm-2 bg-light text-dark mb-3" type="search" name="Search" placeholder="Search" aria-label="Search"><br>
+                    <button class="btn btn-primary text-white mr-sm-2 mb-3" type="submit">Search recipes</button>
                 </form>
             </div>
-            <div class="col-sm-9 p-4">
+            <div class="col-12 col-sm-12 col-md-8 mt-3">
                 <div class="alert alert-danger" role="alert">
                     This is a danger alert—check it out!
                 </div>
