@@ -16,20 +16,27 @@
 <?php
 $showTime = $_POST["checkNumber"];
 switch ($showTime) {
-    case "$showTime == 0":
+    case "0":
         echo "Ngay thu hai!";
-    case "$showTime == 1":
+        break;
+    case "1":
         echo "Ngay thu ba!";
-    case "$showTime == 2":
+        break;
+    case "2":
         echo "Ngay thu tu!";
-    case "$showTime == 3":
+        break;
+    case "3":
         echo "Ngay thu nam!";
-    case "$showTime == 4":
+        break;
+    case "4":
         echo "Ngay thu sau!";
-    case "$showTime == 5":
+        break;
+    case "5":
         echo "Ngay thu bay!";
-    case "$showTime == 6":
+        break;
+    case "6":
         echo "Ngay chu nhat!";
+        break;
     default:
         echo "Khong hop le!";
 }
