@@ -29,9 +29,9 @@
     for ($i = 0; $i < 8; $i++) {
         echo "<tr>";
         for ($j = 0; $j < 8; $j++) {
-            if ($i % 2 == 0 && $j % 2 == 1) {
+            if ($i % 2 == 1 && $j % 2 == 1) {
                 echo "<td class='bg-black'></td>";
-            } elseif ($i % 2 == 1 && $j % 2 == 0) {
+            } elseif ($i % 2 == 0 && $j % 2 == 0) {
                 echo "<td class='bg-black'></td>";
             } else {
                 echo "<td></td>";
