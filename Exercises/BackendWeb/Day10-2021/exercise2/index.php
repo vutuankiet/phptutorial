@@ -1,93 +1,117 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
-            integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
-            integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
-            crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Exercise 2</title>
 </head>
+
 <body>
-<div class="container">
-    <div class="col-12 col-sm-8 col-md-5 col-lg-4 m-auto border border-dark rounded-3">
-        <h2 class="col-12 text-center text-light bg-primary p-3">Login</h2>
-        <form class="p-5" action="." method="POST">
-            <label for="firstName">First name:</label>
-            <input class="form-control" type="text" name="firstName" placeholder="Firstname" required><br>
-            <label for="lastName">Last name:</label>
-            <input class="form-control" type="text" name="lastName" placeholder="Lastname" required><br>
-            <input class="form-control" type="email" name="email" placeholder="email" required><br>
-            <div class="col-12 d-flex">
-                <label for="gender">Gender:</label>
-                <div class="form-check ms-2">
-                    <input type="radio" class="form-check-input" id="genderMall" name="gender" value="Mall" required>
-                    <label class="form-check-label" for="genderMall">Mall</label>
+    <?php
+    $firstName = $lastName = $email = $gender = $state = $hobbies = "";
+    $fNameErr = $lNameErr = $emailErr = $genderErr = "";
+    function check_input($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (empty($_POST["firstName"])) {
+            $fNameErr = "*First Name is required";
+        } else {
+            $firstName = check_input($_POST["firstName"]);
+        }
+        if (empty($_POST["lastName"])) {
+            $lNameErr = "*Last Name is required";
+        } else {
+            $lastName = check_input($_POST["lastName"]);
+        }
+        if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+            $email = $_POST["email"];
+        } else {
+            $email = $_POST["email"];
+            $emailErr = "*Email is not valid";
+        }
+        if (empty($_POST["gender"])) {
+            $genderErr = "*Gender is required";
+        } else {
+            $gender = check_input($_POST["gender"]);
+        }
+        $state=$_POST["states"];
+        if (empty($_POST["hobbies"])) {
+            $hobbies = "";
+        } else {
+            foreach ($_POST["hobbies"] as $hobby) {
+                $hobbies .= "$hobby,";
+            }
+        }
+    }
+    ?>
+    <div class="container-fluid">
+        <div class="col-sm-12 col-md-5 mx-auto">
+            <h3 class="text-bold text-center">Registration Form</h3>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <div class="form-group">
+                    <label class="control-label" for="firstName">First Name</label><span class="text-danger"><?php echo $fNameErr; ?></span>
+                    <input class="form-control" type="text" name="firstName" id="firstName" value="<?php echo $firstName; ?>">
                 </div>
-                <div class="form-check ms-2">
-                    <input type="radio" class="form-check-input" id="genderFemall" name="gender" value="Femall" required>
-                    <label class="form-check-label" for="genderFemall">Femall</label>
+                <div class="form-group">
+                    <label for="lastName" class="control-label">Last Name</label><span class="text-danger"><?php echo $lNameErr; ?></span>
+                    <input type="text" name="lastName" id="lastName" class="form-control" value="<?php echo $lastName; ?>">
                 </div>
-            </div>
-            <div class="col-12">
-                <label for="#">State:</label>
-                <div class="mb-3">
-                    <select class="form-select" name="state" required aria-label="select example">
-                        <option value="">Open this select menu</option>
-                        <option value="johor">Johor</option>
-                        <option value="massachusetts">massachusetts</option>
-                        <option value="washington">Washington</option>
+                <div class="form-group">
+                    <label for="email" class="control-label">Email</label><span class="text-danger"><?php echo $emailErr; ?></span>
+                    <input type="text" name="email" id="email" class="form-control" value="<?php echo $email; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="gender" class="control-label mr-2">Gender</label>
+                    <input type="radio" name="gender" id="male" value="male" <?php if (isset($gender) && $gender == "male") echo "checked"; ?>> Male
+                    <input type="radio" name="gender" id="female" value="female" <?php if (isset($gender) && $gender == "female") echo "checked"; ?>> Female <span class="text-danger"><?php echo $genderErr; ?></span>
+                </div>
+                <div class="form-group">
+                    <label for="states" class="control-label">State</label>
+                    <select name="states" id="state" class="form-control">
+                        <option value="1">Johor</option>
+                        <option value="2">Massachusetts</option>
+                        <option value="3">Washington</option>
                     </select>
                 </div>
-            </div>
-            <div class="col-12"><label for="#">Hobbies:</label></div>
-            <div class="col-12 d-flex">
-                <div class="form-check mb-3 ms-2">
-                    <input type="checkbox" class="form-check-input" name="hobbies" value="Badminton" id="checkBadminton">
-                    <label class="form-check-label" for="checkBadminton">Badminton</label>
+                <div class="form-group">
+                    <label for="hobbies" class="control-label">Hobbies</label> <br>
+                    <input type="checkbox" name="hobbies[]" id="badminton" value="badminton">
+                    <label for="badminton" class="control-label">Badminton</label>
+                    <input type="checkbox" name="hobbies[]" id="football" value="football">
+                    <label for="football" class="control-label">Football</label>
+                    <input type="checkbox" name="hobbies[]" id="bicycle" value="bicycle">
+                    <label for="bicycle" class="control-label">Bicycle</label>
                 </div>
-                <div class="form-check mb-3 ms-2">
-                    <input type="checkbox" class="form-check-input" name="hobbies" value="Football" id="checkFootball">
-                    <label class="form-check-label" for="checkFootball">Football</label>
+                <div class="form-group">
+                    <input type="submit" name="submit" id="submit" class="btn btn-primary" value="Save Record" />
+                    <input type="reset" name="reset" id="reset" class="btn btn-outline-primary" value="Reset" />
                 </div>
-                <div class="form-check mb-3 ms-2">
-                    <input type="checkbox" class="form-check-input" name="hobbies" value="Bicycle" id="checkBicycle">
-                    <label class="form-check-label" for="checkBicyle">Bicycle</label>
-                </div>
-            </div>
-            <button class="btn btn-outline-primary" type="submit" name="submit">Save record</button>
-            <button class="btn btn-outline-dark" type="reset" name="reset">Reset</button>
-        </form>
-        <?php
-        $firstName = $lastname = $email = $gender = $state = $hobbies = "";
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $firstName = test_input($_POST["firstName"]);
-            $lastName = test_input($_POST["lastName"]);
-            $email = test_input($_POST["email"]);
-            $gender = test_input($_POST["gender"]);
-            $state = test_input($_POST["state"]);
-            $hobbies = test_input($_POST["hobbies"]);
-        }
-        function test_input($data) {
-            $data = trim($data);
-            $data = stripslashes($data);
-            $data = htmlspecialchars($data);
-            return $data;
-        }echo "dang nhap thanh cong: <br>Thong tin cua ban la: <br>";
-        echo "Firstname: $firstName<br>Lastname: $lastName<br>Email: $email<br>Gender: $gender<br>State: $state<br>Hobbies: $hobbies"
-        ?>
+            </form>
+            <?php
+            if (!empty($_POST["firstName"]) && !empty($_POST["lastName"] && filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) && !empty($_POST["gender"]))) {
+                echo "Đăng kí thành công! <br>";
+                echo "Thông tin của bạn: <br>";
+                echo "First Name: $firstName <br>";
+                echo "Last Name: $lastName <br>";
+                echo "Email: $email <br>";
+                echo "Gender: $gender <br>";
+                echo "State: $state <br>";
+                echo "Hobbies: $hobbies <br>";
+            }
+            ?>
+        </div>
     </div>
-</div>
-
 </body>
+
 </html>
