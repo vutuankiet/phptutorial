@@ -18,7 +18,7 @@ body{
 
 	font-family: 'FuturaHandwritten';
 	color: #333;
-	font-size: 20px;
+	font-size: 18px;
 
 }
 #preloader{
@@ -52,8 +52,8 @@ s{
 
 #translations{
 	margin: 10px auto;
-    font-size: 10.5px;
-    line-height: 19px;
+    font-size: 12px;
+    line-height: 21px;
     color: #fff;
     text-align: center;
     width: 960px;
